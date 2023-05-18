@@ -5,6 +5,7 @@ import Register from "../Pages/Auth/Register";
 import 'react-toastify/dist/ReactToastify.css';
 import Blog from "../Pages/Blog/Blog";
 import ErrorPage from "../Pages/Shared/ErrorPage";
+import MyToys from "../Pages/Toys/MyToys";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>
+      },
+      {
+        path: "/my-toys",
+        element: <MyToys></MyToys>
       }
     ]
   },

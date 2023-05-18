@@ -32,7 +32,10 @@ const Navbar = () => {
             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
               <li><Link to='/'>Home</Link></li>
               <li><Link to='blog'>Blog</Link></li>
-              {user ? <li><a onClick={handleLogOut}>Logout</a></li> : <li><Link to='login'>Login</Link></li>}
+              {user ? <>
+                <li><Link to='/my-toys'>My Toys</Link></li>
+                <li><a onClick={handleLogOut}>Logout</a></li></>
+                : <li><Link to='/login'>Login</Link></li>}
               {user && (<div className="tooltip" data-tip={user?.displayName}>
                 <li> <a>{user?.displayName}</a></li>
               </div>)}
@@ -47,10 +50,14 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 lg:flex lg:items-center">
             <li><NavLink to='/' className={({ isActive }) =>
               isActive ? "btn btn-outline btn-primary capitalize" : "inactive-link"}>Home</NavLink></li>
-            <li><NavLink to='blog' className={({ isActive }) =>
+            <li><NavLink to='/blog' className={({ isActive }) =>
               isActive ? "btn btn-outline btn-primary capitalize" : "inactive-link"}>Blog</NavLink></li>
-            {user ? <li><a onClick={handleLogOut}>Logout</a></li> :
-              <li><NavLink to='login' className={({ isActive }) =>
+            {user ? <>
+              <li><NavLink to='/my-toys' className={({ isActive }) =>
+                isActive ? "btn btn-outline btn-primary capitalize" : "inactive-link"}>My Toys</NavLink></li>
+              <li><NavLink onClick={handleLogOut} className="inactive-link">Logout</NavLink></li></>
+              :
+              <li><NavLink to='/login' className={({ isActive }) =>
                 isActive ? "btn btn-outline btn-primary capitalize" : "inactive-link"}>Login</NavLink></li>}
             {user && (<div className="tooltip" data-tip={user?.displayName}>
               <img src={user.photoURL ? user.photoURL : "https://i.ibb.co/6Y2xHC1/Fj-U2lkc-WYAg-NG6d.jpg"} alt={user?.displayName} className='w-12 h-12 rounded-full' />
