@@ -28,8 +28,8 @@ const Login = () => {
       })
   }
 
-  // google
-  const handleGoogleAuth = () => {
+  // google login
+  const handleGoogleLogin = () => {
     googleLogIn()
       .then(result => {
         console.log(result.user);
@@ -39,8 +39,8 @@ const Login = () => {
       .catch(error => console.log(error.message))
   }
 
-  // github
-  const handleGithubAuth = () => {
+  // github login
+  const handleGithubLogin = () => {
     githubLogIn()
       .then(result => {
         console.log(result.user);
@@ -61,29 +61,31 @@ const Login = () => {
       <div className="card w-11/12 sm:w-4/5 max-w-xl mx-auto shadow-2xl bg-base-100 mb-10">
         <div className="card-body">
           <form onSubmit={handleLogin}>
-            <div className="form-control">
+          <h3 className='text-2xl font-semibold'>Login to account</h3>
+            <div className="form-control mt-4">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text">Email <span className='text-red-500 text-lg'>*</span></span>
               </label>
               <input type="email" value={email} onChange={handleEmail} placeholder="email" className="input input-bordered" required />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text">Password <span className='text-red-500 text-lg mt-1'>*</span></span>
               </label>
               <input type="password" value={password} onChange={handlePassword} placeholder="password" className="input input-bordered" required />
               {error && <span className='text-red-500 text-sm mt-1 error'>{error}</span>}
               <label className="label">
-                <p className='label-text-alt'>Don&apos;t have an account?  <Link to='../register' className="label-text-alt link link-hover">Register</Link></p>
+                <p className='label-text-alt'>Don&apos;t have an account?  <Link to='../register' className="label-text-alt link link-hover text-primary">Register</Link></p>
               </label>
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
             </div>
           </form>
-          <div className="form-control mt-6">
-            <button className="btn btn-outline btn-primary mb-2" onClick={handleGoogleAuth}><FaGoogle className='me-2'></FaGoogle> Login with Google</button>
-            <button className="btn btn-outline" onClick={handleGithubAuth}><FaGithub className='me-2'></FaGithub> Login with Github</button>
+          <div className="divider my-3">OR</div>
+          <div className="form-control">
+            <button className="btn btn-outline btn-primary mb-2" onClick={handleGoogleLogin}><FaGoogle className='me-2'></FaGoogle> Login with Google</button>
+            <button className="btn btn-outline" onClick={handleGithubLogin}><FaGithub className='me-2'></FaGithub> Login with Github</button>
           </div>
         </div>
       </div>

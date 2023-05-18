@@ -34,6 +34,7 @@ const Navbar = () => {
               <li><Link to='blog'>Blog</Link></li>
               {user ? <>
                 <li><Link to='/my-toys'>My Toys</Link></li>
+                <li><Link to='/add-a-toy'>Add a Toy</Link></li>
                 <li><a onClick={handleLogOut}>Logout</a></li></>
                 : <li><Link to='/login'>Login</Link></li>}
               {user && (<div className="tooltip" data-tip={user?.displayName}>
@@ -52,9 +53,13 @@ const Navbar = () => {
               isActive ? "btn btn-outline btn-primary capitalize" : "inactive-link"}>Home</NavLink></li>
             <li><NavLink to='/blog' className={({ isActive }) =>
               isActive ? "btn btn-outline btn-primary capitalize" : "inactive-link"}>Blog</NavLink></li>
+            <li><NavLink to='/all-toys' className={({ isActive }) =>
+              isActive ? "btn btn-outline btn-primary capitalize" : "inactive-link"}>All Toys</NavLink></li>
             {user ? <>
               <li><NavLink to='/my-toys' className={({ isActive }) =>
                 isActive ? "btn btn-outline btn-primary capitalize" : "inactive-link"}>My Toys</NavLink></li>
+              <li><NavLink to='/add-a-toy' className={({ isActive }) =>
+                isActive ? "btn btn-outline btn-primary capitalize" : "btn btn-ghost font-normal normal-case"}>Add a Toy</NavLink></li>
               <li><NavLink onClick={handleLogOut} className="inactive-link">Logout</NavLink></li></>
               :
               <li><NavLink to='/login' className={({ isActive }) =>

@@ -9,9 +9,9 @@ const Register = () => {
   const [name, setName] = useState('');
   const [url, setUrl] = useState('');
   const [email, setEmail] = useState('');
-  const [emailError, setemailError] = useState('');
+  const [emailError, setEmailError] = useState('');
   const [password, setPassword] = useState('');
-  const [passwordError, setpasswordError] = useState('')
+  const [passwordError, setPasswordError] = useState('')
   const [authError, setAuthError] = useState('')
 
   const handleSubmit = (e) => {
@@ -30,7 +30,7 @@ const Register = () => {
       })
   }
   // google
-  const handleGoogleAuth = () => {
+  const handleGoogleLogin = () => {
     googleLogIn()
       .then(result => {
         handleLogOut();
@@ -48,40 +48,36 @@ const Register = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        // Sign-out successful.
         navigate('/login');
       }).catch((error) => {
-        // An error happened.
         console.log(error.message);
       });
   }
 
   const handleName = (e) => {
-    const nameInput = e.target.value;
-    setName(nameInput);
+    setName(e.target.value);
   }
 
   const handleUrl = (e) => {
-    const urlInput = e.target.value;
-    setUrl(urlInput);
+    setUrl(e.target.value);
   }
 
   const handleEmail = (e) => {
     const emailInput = e.target.value;
     setEmail(emailInput);
     if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(emailInput)) {
-      setemailError("Please provide a valid email");
+      setEmailError("Email is not valid");
     } else {
-      setemailError("");
+      setEmailError("");
     }
   }
   const handlePassword = (e) => {
     const passwordInput = e.target.value;
     setPassword(passwordInput);
     if (passwordInput.length < 6) {
-      setpasswordError('Password should be at least 6 character long');
+      setPasswordError('Password should be at least 6 character long');
     } else {
-      setpasswordError('');
+      setPasswordError('');
     }
   }
   return (
@@ -90,7 +86,8 @@ const Register = () => {
         <div className="card-body">
           {authError && <span className='text-red-500 text-sm mt-1 error'>{authError}</span>}
           <form onSubmit={handleSubmit}>
-            <div className="form-control">
+            <h3 className='text-2xl font-semibold'>Create Account</h3>
+            <div className="form-control mt-4">
               <label className="label">
                 <span className="label-text">Name</span>
               </label>
@@ -104,27 +101,28 @@ const Register = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text">Email <span className='text-red-500 text-lg mt-1'>*</span></span>
               </label>
               <input type="email" value={email} onChange={handleEmail} placeholder="email" className="input input-bordered" required />
-              {emailError && <span className='text-red-500 text-sm mt-1 error'>{emailError}</span>}
+              {emailError && <span className='text-red-500 text-lg mt-1 error'>{emailError}</span>}
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text">Password <span className='text-red-500 text-sm mt-1'>*</span></span>
               </label>
               <input type="password" value={password} onChange={handlePassword} placeholder="password" className="input input-bordered" required />
               {passwordError && <span className='text-red-500 text-sm mt-1 error'>{passwordError}</span>}
               <label className="label">
-                <p className="label-text-alt">Already Have an Account? <Link to="../login" className="label-text-alt link link-hover">Login</Link></p>
+                <p className="label-text-alt">Already Have an Account? <Link to="../login" className="label-text-alt link link-hover text-primary">Login</Link></p>
               </label>
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>
             </div>
           </form>
-          <div className="form-control mt-6">
-            <button className="btn btn-outline btn-primary mb-2" onClick={handleGoogleAuth}><FaGoogle className='me-2'></FaGoogle> Register with Google</button>
+          <div className="divider my-3">OR</div>
+          <div className="form-control">
+            <button className="btn btn-outline btn-primary mb-2" onClick={handleGoogleLogin}><FaGoogle className='me-2'></FaGoogle> Register with Google</button>
             <button className="btn btn-outline" onClick={handleGithubAuth}><FaGithub className='me-2'></FaGithub> Register with Github</button>
           </div>
         </div>
