@@ -4,11 +4,13 @@ import Login from "../Pages/Auth/Login";
 import Register from "../Pages/Auth/Register";
 import 'react-toastify/dist/ReactToastify.css';
 import Blog from "../Pages/Blog/Blog";
+import ErrorPage from "../Pages/Shared/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/login",
