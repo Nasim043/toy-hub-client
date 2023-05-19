@@ -6,10 +6,14 @@ import { ToastContainer } from "react-toastify";
 const Main = () => {
   return (
     <>
-      <Navbar></Navbar>
-      {/* Other components will be placed here */}
-      <Outlet></Outlet>
-      <Footer></Footer>
+      <div className="flex flex-col min-h-screen">
+        <Navbar></Navbar>
+        {/* Other components will be placed here */}
+        <div className="flex-grow">
+          <Outlet></Outlet>
+        </div>
+        <Footer></Footer>
+      </div>
       <ToastContainer></ToastContainer>
     </>
   );
