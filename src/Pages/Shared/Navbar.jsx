@@ -59,7 +59,7 @@ const Navbar = () => {
               <li><NavLink to='/my-toys' className={({ isActive }) =>
                 isActive ? "btn btn-outline btn-primary capitalize" : "inactive-link"}>My Toys</NavLink></li>
               <li><NavLink to='/add-a-toy' className={({ isActive }) =>
-                isActive ? "btn btn-outline btn-primary capitalize" : "btn btn-ghost font-normal normal-case"}>Add a Toy</NavLink></li>
+                isActive ? "btn btn-outline btn-primary normal-case" : "btn btn-ghost font-normal normal-case"}>Add a Toy</NavLink></li>
               <li><NavLink onClick={handleLogOut} className="inactive-link">Logout</NavLink></li></>
               :
               <li><NavLink to='/login' className={({ isActive }) =>
