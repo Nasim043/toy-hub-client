@@ -12,7 +12,7 @@ const CategoryTab = () => {
   }
 
   useEffect(() => {
-    fetch(`http://localhost:5000/getToysByCategory/${category}`)
+    fetch(`https://b7a11-toy-marketplace-server-side-nasim043.vercel.app/getToysByCategory/${category}`)
       .then(res => res.json())
       .then(data => setToys(data))
   }, [category])

@@ -50,12 +50,12 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <PrivateRoutes><ToyDetails></ToyDetails></PrivateRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
+        loader: ({ params }) => fetch(`https://b7a11-toy-marketplace-server-side-nasim043.vercel.app/toys/${params.id}`)
       },
       {
         path: "/update-a-toy/:id",
         element: <PrivateRoutes><UpdateToy></UpdateToy></PrivateRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
+        loader: ({ params }) => fetch(`https://b7a11-toy-marketplace-server-side-nasim043.vercel.app/toys/${params.id}`)
       }
     ]
   },

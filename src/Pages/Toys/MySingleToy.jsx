@@ -24,7 +24,7 @@ const MySingleToy = ({ toy }) => {
           method: 'DELETE',
           headers: { 'Content-Type': 'application/json' },
         }
-        fetch(`http://localhost:5000/toys/${id}`, options)
+        fetch(`https://b7a11-toy-marketplace-server-side-nasim043.vercel.app/toys/${id}`, options)
           .then(res => res.json())
           .then(data => {
             if (data.deletedCount > 0) {
