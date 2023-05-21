@@ -47,7 +47,7 @@ const CategoryTab = () => {
                   </div>
                 </div>
                 <div className='flex justify-center'>
-                  <Link className="btn my-gradient text-white font-semibold px-6 py-3 rounded-md mt-4 capitalize border-0 w-11/12 mx-auto my-5" to={`/details//${toy._id}`}>
+                  <Link className="btn my-gradient text-white font-semibold px-6 py-3 rounded-md mt-4 capitalize border-0 w-11/12 mx-auto my-5" to={`/details/${toy._id}`}>
                     <FaRegEye className='me-2'></FaRegEye>View Details
                   </Link>
                 </div>
