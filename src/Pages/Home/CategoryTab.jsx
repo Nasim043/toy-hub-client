@@ -30,24 +30,28 @@ const CategoryTab = () => {
       <div className='flex justify-center gap-8'>
         {
           toys && toys.map(toy => {
-            return <div className="max-w-sm rounded overflow-hidden shadow-lg" key={toy._id}>
+            return <div className="max-w-sm rounded overflow-hidden shadow-lg flex flex-col justify-between" key={toy._id}>
               <img src={toy.pictureUrl} alt="Card Image" className="w-full" />
-              <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">{toy.name}</div>
-                <p className="text-gray-500">Price: {toy.price}</p>
-                <div className="text-gray-500 flex items-center">
-                  <span className="me-3">Rating:</span>
-                  <Rating
-                    style={{ maxWidth: 70 }}
-                    readOnly
-                    orientation="horizontal"
-                    value={toy.rating}
-                  />
+              <div>
+                <div className="px-6 py-4">
+                  <div className="font-bold text-xl mb-2">{toy.name}</div>
+                  <p className="text-gray-500">Price: &#36;{toy.price}</p>
+                  <div className="text-gray-500 flex items-center">
+                    <span className="me-3">Rating:</span>
+                    <Rating
+                      style={{ maxWidth: 70 }}
+                      readOnly
+                      orientation="horizontal"
+                      value={toy.rating}
+                    />
+                  </div>
+                </div>
+                <div className='flex justify-center'>
+                  <Link className="btn my-gradient text-white font-semibold px-6 py-3 rounded-md mt-4 capitalize border-0 w-11/12 mx-auto my-5" to={`/details//${toy._id}`}>
+                    <FaRegEye className='me-2'></FaRegEye>View Details
+                  </Link>
                 </div>
               </div>
-                <Link className="btn my-gradient text-white font-semibold px-6 py-3 rounded-md mt-4 capitalize border-0 w-11/12 mx-auto my-5" to={`/details//${toy._id}`}>
-                  <FaRegEye className='me-2'></FaRegEye>View Details
-                </Link>
             </div>
           })
         }

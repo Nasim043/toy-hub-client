@@ -11,7 +11,7 @@ const SingleToys = ({ toy }) => {
       <td>&#36;{price}</td>
       <td className="text-center">{quantity}</td>
       <td className="text-center">
-        <Link className="btn btn-sm btn-secondary" to={`/details/${_id}`}><FaEye className="me-1"></FaEye>Details</Link>
+        <Link className="btn btn-sm my-gradient text-white font-semibold rounded-md capitalize border-0 mx-auto" to={`/details/${_id}`}><FaEye className="me-1"></FaEye>Details</Link>
       </td>
     </tr>
   );

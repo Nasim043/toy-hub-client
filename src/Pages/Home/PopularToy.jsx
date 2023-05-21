@@ -27,11 +27,11 @@ const PopularToy = () => {
             <img
               src={toy.pictureUrl}
               alt={toy.name}
-              className="sm:h-64 w-full object-cover rounded-t-lg"
+              className="sm:h-64 w-full rounded-t-lg"
             />
             <div className="space-y-5 p-2">
               <h3 className="text-lg font-semibold">{toy.name}</h3>
-              <p className="text-gray-500">Price: {toy.price}</p>
+              <p className="text-gray-500">Price: &#36;{toy.price}</p>
               <div className="text-gray-500 flex items-center">
                 <span className="me-3">Rating:</span>
                 <Rating
