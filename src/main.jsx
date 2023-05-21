@@ -4,6 +4,7 @@ import './index.css'
 import { RouterProvider } from "react-router-dom";
 import router from './Routes/Routes';
 import AuthProvider from './Provider/AuthProvider';
+import '@smastrom/react-rating/style.css'
 
 
 

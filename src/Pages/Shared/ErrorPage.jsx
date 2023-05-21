@@ -1,9 +1,11 @@
 import Lottie from "lottie-react";
 import Red_Car from '../../assets/red-car.json'
 import { Link, useRouteError } from 'react-router-dom';
+import useTitle from "../../hooks/useTitle";
 
 const ErrorPage = () => {
   const { error, status } = useRouteError();
+  useTitle('Error')
   return (
     <div className='flex flex-col justify-center items-center h-screen'>
       <Lottie animationData={Red_Car} loop={true} className='mt-[-100px] w-full h-80 md:h-4/5' />

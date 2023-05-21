@@ -12,7 +12,9 @@ const Navbar = () => {
     logOut()
       .then(() => {
         // Sign-out successful.
-        toast.success('Log-out successful')
+        toast.success('Log-out successful',{
+          closeOnClick: true,
+        })
         navigate('/login');
       }).catch((error) => {
         // An error happened.

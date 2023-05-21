@@ -1,25 +1,34 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 import { toast } from "react-toastify";
+import { Rating } from "@smastrom/react-rating";
+import { useNavigate } from "react-router-dom";
 
 const AddToys = () => {
+  const navigate = useNavigate()
+  useTitle('Add Toy')
   const { user } = useContext(AuthContext)
+  const [rating, setRating] = useState(0);
   useTitle('Add Toys');
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => {
-    console.log(data);
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const onSubmit = formData => {
+    console.log(formData);
+    formData.rating = rating;
     fetch('http://localhost:5000/toys', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      body: JSON.stringify(formData)
     })
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        if(data.acknowledged === true) {
-          toast.success('Toy added successfully')
+        if (data.acknowledged === true) {
+          toast.success('Toy added successfully', {
+            closeOnClick: true,
+          })
+          navigate('/my-toys')
         }
       })
   }
@@ -27,7 +36,7 @@ const AddToys = () => {
   return (
     <div className="my-container">
       <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-3xl mx-auto shadow-xl px-7 py-10 rounded-xl">
-        <h3 className='text-2xl font-semibold'>New Product</h3>
+        <h3 className='text-2xl font-semibold bg-gradient-to-r from-purple-400 to-blue-500 inline-block text-transparent bg-clip-text'>New Product</h3>
         <div className="my-4">
           <label htmlFor="pictureUrl" className="block text-gray-700 font-medium mb-2">
             Picture URL:
@@ -62,7 +71,7 @@ const AddToys = () => {
             type="text"
             {...register('sellerName')}
             id="sellerName"
-            defaultValue={user?.displayName || 'Anonymous'}
+            defaultValue={user?.displayName}
             className="w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:border-blue-500"
           />
         </div>
@@ -88,9 +97,10 @@ const AddToys = () => {
               {...register('subcategory')}
               id="subcategory"
               className="w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:border-blue-500">
-              <option value="Math Toys">Math Toys</option>
-              <option value="Language Toys">Language Toys</option>
-              <option value="Science Toys">Science Toys</option>
+              <option value="racing-car">Racing Car</option>
+              <option value="police-car">Police Car</option>
+              <option value="truck">Truck</option>
+              <option value="others">Others</option>
             </select>
           </div>
 
@@ -100,6 +110,7 @@ const AddToys = () => {
             </label>
             <input
               type="number"
+              step="0.01"
               {...register('price')}
               id="price"
               placeholder="price"
@@ -111,14 +122,13 @@ const AddToys = () => {
         <div className="flex flex-wrap mb-4">
           <div className="w-full md:w-1/2 md:pe-3 mb-4">
             <label htmlFor="rating" className="block font-medium mb-2">
-              Rating:
+              Rating: {rating}
             </label>
-            <input
-              type="number"
-              {...register('rating')}
-              id="rating"
-              placeholder="Rating from 0 to 5"
-              className="w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:border-blue-500"
+            <Rating
+              style={{ maxWidth: 180 }}
+              value={rating}
+              onChange={setRating}
+              isRequired
             />
           </div>
 
@@ -148,7 +158,7 @@ const AddToys = () => {
           />
         </div>
 
-        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+        <button type="submit" className='bg-gradient-to-r from-purple-400 to-blue-500 hover:from-pink-500 hover:to-orange-500 text-white font-semibold px-6 py-3 rounded-md mr-6'>Submit</button>
       </form >
     </div >
   );

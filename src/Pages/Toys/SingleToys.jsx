@@ -1,3 +1,4 @@
+import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const SingleToys = ({ toy }) => {
@@ -7,9 +8,11 @@ const SingleToys = ({ toy }) => {
       <td>{sellerName}</td>
       <td>{name}</td>
       <td>{subcategory}</td>
-      <td>{price}</td>
-      <td>{quantity}</td>
-      <td><Link className="btn btn-sm btn-secondary" to={`/details/${_id}`}>Details</Link></td>
+      <td>&#36;{price}</td>
+      <td className="text-center">{quantity}</td>
+      <td className="text-center">
+        <Link className="btn btn-sm btn-secondary" to={`/details/${_id}`}><FaEye className="me-1"></FaEye>Details</Link>
+      </td>
     </tr>
   );
 };

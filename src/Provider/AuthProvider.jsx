@@ -10,6 +10,8 @@ const GithubProvider = new GithubAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [control, setControl] = useState(false);
+  const [modalData, setModalData] = useState({});
 
   // email/password registration
   const register = (email, password) => {
@@ -57,7 +59,10 @@ const AuthProvider = ({ children }) => {
     }
   }, [])
 
-  const authInfo = { user, register, login, logOut, updateUserProfile, loading, googleLogIn, githubLogIn };
+  const authInfo = {
+    user, register, login, logOut, updateUserProfile, loading, googleLogIn, githubLogIn,
+    control, setControl, modalData, setModalData
+  };
 
   return (
     <AuthContext.Provider value={authInfo}>

@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
   const navigate = useNavigate()
@@ -13,6 +14,7 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('')
   const [authError, setAuthError] = useState('')
+  useTitle('Register')
 
   const handleSubmit = (e) => {
     e.preventDefault();

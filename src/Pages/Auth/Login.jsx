@@ -22,7 +22,9 @@ const Login = () => {
       .then(result => {
         e.target.reset();
         console.log(result.user);
-        toast.success('LogIn successful');
+        toast.success('LogIn successful',{
+          closeOnClick: true,
+        });
         navigate(from, { replace: true })
       })
       .catch(error => {
@@ -35,7 +37,9 @@ const Login = () => {
     googleLogIn()
       .then(result => {
         console.log(result.user);
-        toast.success('LogIn successful');
+        toast.success('LogIn successful',{
+          closeOnClick: true,
+        });
         navigate(from, { replace: true })
       })
       .catch(error => console.log(error.message))
@@ -46,7 +50,9 @@ const Login = () => {
     githubLogIn()
       .then(result => {
         console.log(result.user);
-        toast.success('LogIn successful');
+        toast.success('LogIn successful',{
+          closeOnClick: true,
+        });
         navigate(from, { replace: true })
       })
       .catch(error => console.log(error.message))

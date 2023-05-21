@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import SingleToys from "./SingleToys";
+import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
+  useTitle('All Toys')
   // https://b7a11-toy-marketplace-server-side-nasim043.vercel.app/
   const [text, setText] = useState('');
   const [toys, setToys] = useState([]);
@@ -28,15 +30,15 @@ const AllToys = () => {
           </button>
         </div>
       </div>
-      <table className="table w-full">
+      <table className="table table-zebra w-full">
         <thead>
           <tr>
             <th>Seller</th>
             <th>Toy Name</th>
             <th>Sub-category</th>
             <th>Price</th>
-            <th>Available Quantity</th>
-            <th>Action</th>
+            <th className="text-center">Available Quantity</th>
+            <th className="text-center">Actions</th>
           </tr>
         </thead>
         <tbody>
