@@ -1,4 +1,4 @@
-# RecipeRealm
+# ToyGalaxyHub
 
 Live demo: https://eclectic-bavarois-b08cd9.netlify.app/
 

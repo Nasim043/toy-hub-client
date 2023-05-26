@@ -1,10 +1,11 @@
 import { Rating } from '@smastrom/react-rating';
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from "../../hooks/useTitle";
 
 const ToyDetails = () => {
   const toy = useLoaderData()
-
+  useTitle('Toy details')
   return (
     <div className='my-container'>
       <div className="card w-11/12 md:w-2/3 bg-base-100 shadow-xl mx-auto mb-10">
@@ -25,7 +26,7 @@ const ToyDetails = () => {
               orientation="horizontal"
               value={toy?.rating}
             />
-           </div>
+          </div>
           <p>{toy?.description}</p>
         </div>
       </div>
