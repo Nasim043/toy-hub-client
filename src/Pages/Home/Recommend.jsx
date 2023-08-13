@@ -5,7 +5,7 @@ const Recommend = () => {
   const [toys, setToys] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:5000/getRecommendedToys')
+    fetch('https://b7a11-toy-marketplace-server-side-nasim043.vercel.app/getRecommendedToys')
       .then(res => res.json())
       .then(data => setToys(data))
   }, [])

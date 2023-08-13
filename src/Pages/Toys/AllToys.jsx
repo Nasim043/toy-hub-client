@@ -9,13 +9,13 @@ const AllToys = () => {
   const [toyLoading, setToyLoading] = useState(true);
 
   const handleSearchText = () => {
-    fetch(`http://localhost:5000/getToyByName/${text}`)
+    fetch(`https://b7a11-toy-marketplace-server-side-nasim043.vercel.app/getToyByName/${text}`)
       .then(res => res.json()
         .then(data => setToys(data)))
   }
 
   useEffect(() => {
-    fetch('http://localhost:5000/toys')
+    fetch('https://b7a11-toy-marketplace-server-side-nasim043.vercel.app/toys')
       .then(res => res.json()
         .then(data => {
           setToyLoading(false);

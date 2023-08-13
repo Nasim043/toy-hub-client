@@ -13,13 +13,13 @@ const MyToys = () => {
 
   const handleSorting = () => {
     setSortByAsc(!sortByAsc);
-    fetch(`http://localhost:5000/getSortedToysByEmail/${user?.email}?sortBy=${sortByAsc}`)
+    fetch(`https://b7a11-toy-marketplace-server-side-nasim043.vercel.app/getSortedToysByEmail/${user?.email}?sortBy=${sortByAsc}`)
       .then(res => res.json())
       .then(data => setMyToys(data))
   }
 
   useEffect(() => {
-    fetch(`http://localhost:5000/getToysByEmail/${user?.email}`)
+    fetch(`https://b7a11-toy-marketplace-server-side-nasim043.vercel.app/getToysByEmail/${user?.email}`)
       .then(res => res.json())
       .then(data => {
         setToyLoading(false);

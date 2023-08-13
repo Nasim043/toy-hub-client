@@ -16,7 +16,7 @@ const AddToys = () => {
   const onSubmit = formData => {
     console.log(formData);
     formData.rating = rating;
-    fetch('http://localhost:5000/toys', {
+    fetch('https://b7a11-toy-marketplace-server-side-nasim043.vercel.app/toys', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)

@@ -21,7 +21,7 @@ const UpdateToy = () => {
       "quantity": e.target.quantity.value,
       "description": e.target.description.value
     }
-    fetch(`http://localhost:5000/toys/${toy._id}`, {
+    fetch(`https://b7a11-toy-marketplace-server-side-nasim043.vercel.app/toys/${toy._id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
