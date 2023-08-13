@@ -1,7 +1,10 @@
 # ToyGalaxyHub
 
-Live demo: https://eclectic-bavarois-b08cd9.netlify.app/
+Live demo: https://toy-galaxy-hub-acaf47.netlify.app/ 
 
+or
+
+https://eclectic-bavarois-b08cd9.netlify.app/
 
 ## Features
 
