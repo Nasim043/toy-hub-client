@@ -21,7 +21,7 @@ const UpdateToy = () => {
       "quantity": e.target.quantity.value,
       "description": e.target.description.value
     }
-    fetch(`https://b7a11-toy-marketplace-server-side-nasim043.vercel.app/toys/${toy._id}`, {
+    fetch(`http://localhost:5000/toys/${toy._id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -101,7 +101,7 @@ const UpdateToy = () => {
             />
           </div>
 
-          <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+          <button type="submit" className="bg-gradient-to-r from-purple-400 to-blue-500 hover:from-pink-500 hover:to-orange-500 text-white font-semibold px-6 py-3 rounded-md mr-6">Submit</button>
         </form >
       </div >
     </>

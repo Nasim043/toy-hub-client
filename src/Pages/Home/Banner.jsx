@@ -42,7 +42,7 @@ const Banner = () => {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide className="bg-red-100 rounded-lg">
+        <SwiperSlide className="bg-[#F4F8FF] rounded-lg">
           <div className="flex justify-center items-center py-12 px-4">
             <div className="container mx-auto flex flex-col md:flex-row items-center">
               <div className="md:w-1/2 md:pl-7 md:pe-4">

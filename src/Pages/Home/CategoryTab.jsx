@@ -2,6 +2,7 @@ import { Rating } from '@smastrom/react-rating';
 import { useEffect, useState } from 'react';
 import { FaRegEye } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { motion } from "framer-motion"
 
 const CategoryTab = () => {
   const [toys, setToys] = useState([]);
@@ -27,11 +28,17 @@ const CategoryTab = () => {
         <a className={`tab tab-lifted ${category === "police-car" ? "tab-active  text-purple-600" : ""}`} onClick={() => handleCategory("police-car")}>Police Car</a>
         <a className={`tab tab-lifted ${category === "truck" ? "tab-active  text-purple-600" : ""}`} onClick={() => handleCategory("truck")}>Truck</a>
       </div>
-      <div className='flex justify-center gap-8'>
+      <div className='flex flex-col md:flex-row justify-center gap-8' data-aos="fade-up" data-aos-duration="1500">
         {
           toys && toys.map(toy => {
             return <div className="max-w-sm rounded overflow-hidden shadow-lg flex flex-col justify-between" key={toy._id}>
-              <img src={toy.pictureUrl} alt="Card Image" className="w-full" />
+              <motion.div whileHover={{
+                scale: 1.1,
+                transition: { duration: 0.5 },
+              }}
+                whileTap={{ scale: 0.9 }}>
+                <img src={toy.pictureUrl} alt="Card Image" className="h-auto w-full" />
+              </motion.div>
               <div>
                 <div className="px-6 py-4">
                   <div className="font-bold text-xl mb-2">{toy.name}</div>

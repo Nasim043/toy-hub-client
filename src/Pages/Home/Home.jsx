@@ -5,6 +5,8 @@ import CategoryTab from './CategoryTab';
 import PopularToy from './PopularToy';
 import Recommend from './Recommend';
 import useTitle from "../../hooks/useTitle";
+import NewsletterSubscription from './NewsletterSubscription';
+import Review from './Review';
 
 const Home = () => {
   useTitle('Home');
@@ -15,6 +17,8 @@ const Home = () => {
       <CategoryTab></CategoryTab>
       <Recommend></Recommend>
       <PopularToy></PopularToy>
+      <Review></Review>
+      <NewsletterSubscription></NewsletterSubscription>
     </div>
   );
 };
